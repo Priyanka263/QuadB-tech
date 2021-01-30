@@ -1,0 +1,64 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style>
+	th {
+		color: rgb(17, 16, 16);
+	}
+</style>
+
+
+<table class="table table-striped">
+	<tr class="bg-info">
+		<th>#</th>
+		<th>Name</th>
+		<th>Last</th>
+		<th>Buy/Sell Price</th>
+		<th>Volume</th>
+		<th>Base Unit</th>
+	</tr>
+
+	<tbody id="myTable">
+
+	</tbody>
+</table>
+
+<script>
+	var myArray = [
+		{ 'name': 'BTC/INR', 'last': '2474752.0', 'buy': '2467216.0', 'sell': '2474752.0', 'volume': '280.9937', 'base_unit': 'btc' },
+		{ 'name': 'XRP/INR', 'last': '20.5', 'buy': '20.5', 'sell': '20.5491', 'volume': '1447161.0', 'base_unit': 'xrp' },
+		{ 'name': 'ETH/INR', 'last': '104100.0', 'buy': '103909.2', 'sell': '104252.7', 'volume': '2743.501', 'base_unit': 'eth' },
+		{ 'name': 'TRX/INR', 'last': '2.2997', 'buy': '2.2997', 'sell': '2.2998', 'volume': '22623050.0', 'base_unit': 'trx' },
+		{ 'name': 'EOS/INR', 'last': '211.88', 'buy': '211.86', 'sell': '211.88', 'volume': '50669.75', 'base_unit': 'eos' },
+		{ 'name': 'ZIL/INR', 'last': '5.36', 'buy': '4.7', 'sell': '5.63', 'volume': '0.0', 'base_unit': 'zil' },
+		{ 'name': 'BAT/INR', 'last': '24.501', 'buy': '24.2', 'sell': '24.501', 'volume': '427184.04', 'base_unit': 'bat' },
+		{ 'name': 'USDT/INR', 'last': '77.97', 'buy': '77.98', 'sell': '78.0', 'volume': '6135477.46', 'base_unit': 'usdt' },
+		{ 'name': 'WRX/INR', 'last': '8.66', 'buy': '8.65', 'sell': '8.66', 'volume': '10556254.0', 'base_unit': 'wrx' },
+		{ 'name': 'MATIC/INR', 'last': '3.334', 'buy': '3.285', 'sell': '3.334', 'volume': '6560940.0', 'base_unit': 'matic' }
+	]
+
+	buildTable(myArray)
+
+
+
+	function buildTable(data) {
+		var table = document.getElementById('myTable')
+
+		for (var i = 0; i < data.length; i++) {
+			var row = `<tr>
+				            <td>${i+1}</td>
+							<td>${data[i].name}</td>
+							<td>${data[i].last}</td>
+							<td>&#x20b9; ${data[i].buy}/ &#x20b9;${data[i].sell}</td>
+							<td>${data[i].volume}</td>
+							<td>${data[i].base_unit}</td>
+					  </tr>`
+			table.innerHTML += row
+
+
+		}
+	}
+
+</script>
